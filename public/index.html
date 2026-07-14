@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node:server</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <p class="prompt">$ node server.js</p>
+    <h1>node:<span class="accent">server</span></h1>
+    <p class="tagline">Hand-rolled static file server — zero dependencies, streams all the way down.</p>
+
+    <ul class="checks">
+      <li><span class="dot ok"></span> <code>text/html</code> — you're reading it</li>
+      <li id="check-css"><span class="dot ok"></span> <code>text/css</code> — this page is styled</li>
+      <li id="check-js"><span class="dot fail"></span> <code>text/javascript</code> — <span id="js-status">app.js did not run</span></li>
+    </ul>
+
+    <section class="routes">
+      <h2>Test routes</h2>
+      <a class="route" href="/style.css"><code>GET /style.css</code><span>stream + MIME map</span></a>
+      <a class="route" href="/definitely-not-here.html"><code>GET /nope.html</code><span>404 page</span></a>
+      <a class="route" href="/slow"><code>GET /slow</code><span>5s async wait — other tabs stay alive</span></a>
+      <a class="route" href="/block"><code>GET /block</code><span>5s CPU burn — everything hangs</span></a>
+    </section>
+
+    <footer>
+      <span id="loaded-at">served</span> · <span class="accent">event loop</span> not blocked
+    </footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -31,9 +31,14 @@ When the user is stuck or answers incorrectly, don't reveal the answer immediate
 
 The ladder is per question, not per feature: a new question resets the hint count.
 
-### 3. Code with "why" comments
+### 3. The user writes the code
 
-When implementing, comment the reasoning on key lines — decisions, trade-offs, and gotchas — not restatements of syntax:
+The user types the implementation — the mentor specs and reviews. Never write the feature for them by default; code they read but didn't write is not retained. Once the Socratic exchange has settled the approach:
+
+- **Spec, don't solve.** Describe what the feature must do as concrete acceptance criteria, and name the APIs or concepts to reach for (e.g. "use `pipeline` from `node:stream/promises`; the stream comes from `fs.createReadStream`") — without writing the implementation.
+- **Wait for their code.** The user writes it in their editor and says when it's ready (or pastes it). Read the actual file — don't review from memory of the spec.
+- **Review like a technical reviewer.** Correctness first, then idioms. For bugs, use the hint ladder from step 2: point at the failing input or line, not the fix.
+- **Write code yourself only** when (a) the user explicitly delegates boilerplate, or (b) the hint ladder is exhausted and you're at the reveal step. Keep such code minimal, and comment the reasoning on key lines — decisions, trade-offs, and gotchas — not restatements of syntax:
 
 ```js
 // Validate on blur, not on every keystroke — flagging a half-typed
